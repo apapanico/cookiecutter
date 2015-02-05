@@ -78,6 +78,9 @@ def cookiecutter(template, checkout=None, no_input=False, extra_context=None):
             clone_to_dir=config_dict['cookiecutters_dir'],
             no_input=no_input
         )
+    elif 'cookiecutters_dir' in config_dict:
+        cookiecutters_dir = os.path.expanduser(config_dict['cookiecutters_dir'])
+        repo_dir = os.path.join(cookiecutters_dir,template)
     else:
         # If it's a local repo, no need to clone or copy to your
         # cookiecutters_dir
